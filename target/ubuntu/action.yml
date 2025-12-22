@@ -1,0 +1,50 @@
+name: "Build Xlibre driver against XLibre xserver (Ubuntu)"
+inputs:
+    xserver-version:
+        description: "Which Xserver version / ref to build against"
+        required: true
+
+runs:
+    using: "composite"
+    steps:
+        - name:  clone driver repo
+          uses:  actions/checkout@v4
+
+        - name:  dirty hack to deal with permission problem on cache saving
+          shell: bash
+          run:   sudo chown root /bin/tar && sudo chmod u+s /bin/tar
+
+        - name:  apt cache
+          uses:  actions/cache@v4
+          with:
+            key:  driver-build-ubuntu-apt-cache-${{ github.action_ref }}
+            path: /var/cache/apt
+
+        - name:  pkg install
+          shell: bash
+          run:   sudo ${{ github.action_path }}/scripts/ubuntu/install-pkg.sh
+
+        - name:  X11 prereq cache
+          uses:  actions/cache@v4
+          with:
+            key:  driver-build-ubuntu-x11-deps-${{ github.action_ref }}-${{ inputs.xserver-version }}
+            path: /home/runner/x11
+
+        - name:  generic prereq
+          shell: bash
+          run:   ${{ github.action_path }}/scripts/ubuntu/install-prereq.sh
+
+        - name:  check out xserver repo
+          uses:  actions/checkout@v4
+          with:
+            repository: X11Libre/xserver
+            path:       xserver-sdk
+            ref:        ${{ inputs.xserver-version }}
+
+        - name:  build xserver sdk
+          shell: bash
+          run:   ${{ github.action_path }}/scripts/ubuntu/build-xserver-sdk.sh
+
+        - name:  compile driver
+          shell: bash
+          run:   ${{ github.action_path }}/scripts/ubuntu/build-driver.sh
