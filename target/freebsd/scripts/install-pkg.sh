@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -e
+
+pkg install -y \
+    autoconf \
+    automake \
+    bash \
+    curl \
+    gcc \
+    git \
+    libdrm \
+    libepoll-shim \
+    libepoxy \
+    libtool \
+    libX11 \
+    libxkbfile \
+    libxshmfence \
+    libXfont2 \
+    libxcvt \
+    libglvnd \
+    libudev-devd \
+    mesa-dri \
+    mesa-libs \
+    meson \
+    pixman \
+    pkgconf \
+    xcb-util-image \
+    xcb-util-keysyms \
+    xcb-util-renderutil \
+    xcb-util-wm \
+    xkbcomp \
+    xorg-macros \
+    xorgproto \
+    xtrans
