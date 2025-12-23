@@ -91,4 +91,5 @@ apt-get install -y \
 	xtrans-dev \
 	xutils-dev \
 	libxaw7-dev \
-	python3-mako
+	python3-mako \
+	libxrandr-dev
