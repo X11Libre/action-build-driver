@@ -1,0 +1,42 @@
+name: "Build Xlibre driver against XLibre xserver (Dragonfly)"
+inputs:
+    xserver-version:
+        description: "Which Xserver version / ref to build against"
+        required: true
+
+runs:
+    using: "composite"
+    steps:
+        - name:  dirty hack to deal with permission problem on cache saving
+          shell: bash
+          run:   sudo chown root /bin/tar && sudo chmod u+s /bin/tar
+
+        - name:  clone driver repo
+          uses:  actions/checkout@v4
+
+        - name:  apt cache
+          uses:  actions/cache@v4
+          with:
+            key:  driver-build-freebsd-apt-cache-${{ github.action_ref }}
+            path: /var/cache/apt
+
+        - name:  check out xserver repo
+          uses:  actions/checkout@v4
+          with:
+            repository: X11Libre/xserver
+            path:       xserver-sdk
+            ref:        ${{ inputs.xserver-version }}
+
+        - shell: bash
+          run:   cp -R --preserve ../../_actions .actions
+
+        - name: run in freebsd VM
+          id:   xserver-build
+          uses: vmactions/dragonflybsd-vm@v1.1.4
+          with:
+              usesh:   true
+              release: "6.4.2"
+              run: |
+                set -x
+                cp -R .actions /home/runner/work/_actions
+                ${{ github.action_path }}/scripts/run-build.sh
