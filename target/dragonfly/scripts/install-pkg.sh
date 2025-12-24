@@ -12,6 +12,7 @@ pkg install -y \
     libdrm \
     libepoll-shim \
     libepoxy \
+    libinput \
     libtool \
     libX11 \
     libxkbfile \
