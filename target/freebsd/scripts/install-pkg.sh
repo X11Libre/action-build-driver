@@ -34,4 +34,6 @@ pkg install -y \
     xkbcomp \
     xorg-macros \
     xorgproto \
-    xtrans
+    xtrans \
+    devel/evdev-proto
+
