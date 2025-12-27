@@ -7,6 +7,9 @@ set -x
 
 export CFLAGS="$CFLAGS -Wall"
 
+echo "---> $0: scanning for xi.pc"
+find / -name xi.pc
+
 mkdir -p m4
 
 ./autogen.sh --prefix=$X11_PREFIX
