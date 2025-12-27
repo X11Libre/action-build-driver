@@ -2,8 +2,8 @@
 
 set -e
 
+. $GITHUB_ACTION_PATH/scripts/conf.sh
 . $GITHUB_ACTION_PATH/scripts/util.sh
-. $GITHUB_ACTION_PATH/scripts/ubuntu/env.sh
 
 mkdir -p $X11_BUILD_DIR
 cd $X11_BUILD_DIR

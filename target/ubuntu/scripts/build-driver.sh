@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $GITHUB_ACTION_PATH/scripts/ubuntu/env.sh
+. $GITHUB_ACTION_PATH/scripts/conf.sh
 
 set -e
 set -x

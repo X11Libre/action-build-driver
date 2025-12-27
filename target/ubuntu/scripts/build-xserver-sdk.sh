@@ -3,7 +3,7 @@
 set -e
 set -x
 
-. $GITHUB_ACTION_PATH/scripts/ubuntu/env.sh
+. $GITHUB_ACTION_PATH/scripts/conf.sh
 
 export MESON_ARGS="-Dc_args=-fno-common -Dprefix=/usr -Dnamespace=false -Dxselinux=false -Dxephyr=false -Dwerror=false -Dxcsecurity=false -Dxorg=true -Dxvfb=false -Dxnest=false -Ddocs=false"
 

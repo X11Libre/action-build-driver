@@ -22,7 +22,7 @@ runs:
 
         - name:  pkg install
           shell: bash
-          run:   sudo ${{ github.action_path }}/scripts/ubuntu/install-pkg.sh
+          run:   sudo ${{ github.action_path }}/scripts/install-pkg.sh
 
         - name:  X11 prereq cache
           uses:  actions/cache@v4
@@ -32,7 +32,7 @@ runs:
 
         - name:  generic prereq
           shell: bash
-          run:   ${{ github.action_path }}/scripts/ubuntu/install-prereq.sh
+          run:   ${{ github.action_path }}/scripts/install-prereq.sh
 
         - name:  check out xserver repo
           uses:  actions/checkout@v4
@@ -43,8 +43,8 @@ runs:
 
         - name:  build xserver sdk
           shell: bash
-          run:   ${{ github.action_path }}/scripts/ubuntu/build-xserver-sdk.sh
+          run:   ${{ github.action_path }}/scripts/build-xserver-sdk.sh
 
         - name:  compile driver
           shell: bash
-          run:   ${{ github.action_path }}/scripts/ubuntu/build-driver.sh
+          run:   ${{ github.action_path }}/scripts/build-driver.sh
