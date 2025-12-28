@@ -29,6 +29,7 @@ pkg install -y \
     meson \
     pixman \
     pkgconf \
+    spice-protocol \
     xcb-util-image \
     xcb-util-keysyms \
     xcb-util-renderutil \
