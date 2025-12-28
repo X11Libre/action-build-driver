@@ -16,6 +16,7 @@ pkg install -y \
     libinput \
     libtool \
     libX11 \
+    libXi \
     libxkbfile \
     libxshmfence \
     libXfont2 \
