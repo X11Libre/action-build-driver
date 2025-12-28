@@ -10,3 +10,5 @@ cd $X11_BUILD_DIR
 
 build_meson libxcvt     $(mirror_url libxcvt)       libxcvt-0.1.0
 build_ac    xorgproto   $(mirror_url xorgproto)     xorgproto-2024.1
+# omap is Linux specific
+build_meson drm         $(mirror_url drm)           libdrm-2.4.121      ""  -Dfreedreno=enabled -Dtests=false
