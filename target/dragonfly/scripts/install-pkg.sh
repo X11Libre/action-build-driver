@@ -17,6 +17,7 @@ pkg install -y \
     libtool \
     libX11 \
     libXi \
+    libXinerama \
     libxkbfile \
     libxshmfence \
     libXfont2 \
