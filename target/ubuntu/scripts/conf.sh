@@ -7,4 +7,5 @@ export MACHINE=`gcc -dumpmachine`
 export PKG_CONFIG_PATH="$X11_PREFIX/share/pkgconfig:$X11_PREFIX/lib/${MACHINE}/pkgconfig:${X11_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}"
 export MESON_BUILDDIR="build"
 
-export CI_CONCURRENT=`nproc` ;;
+export CI_CONCURRENT=`nproc`
+
