@@ -34,10 +34,10 @@ build_meson() {
     local url="$2"
     local ref="$3"
     local commit="$4"
-    shift
-    shift
-    shift
-    shift || true
+    [ "$1" ] && shift || true
+    [ "$1" ] && shift || true
+    [ "$1" ] && shift || true
+    [ "$1" ] && shift || true
     if [ -f $X11_PREFIX/$pkgname.DONE ]; then
         echo "package $pkgname already built"
     else
@@ -56,9 +56,9 @@ build_ac() {
     local url="$2"
     local ref="$3"
     local commit="$4"
-    shift
-    shift
-    shift
+    [ "$1" ] && shift || true
+    [ "$1" ] && shift || true
+    [ "$1" ] && shift || true
     [ "$1" ] && shift || true
     echo "foobar"
     if [ -f $X11_PREFIX/$pkgname.DONE ]; then
