@@ -1,6 +1,6 @@
 . $GITHUB_ACTION_PATH/scripts/conf.sh
 
-mirror_url() {
+fdo_mirror() {
     local name="$1"
     echo -n "https://github.com/X11Libre/mirror.fdo.$name.git"
 }
