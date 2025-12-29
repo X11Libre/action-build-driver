@@ -13,3 +13,5 @@ meson setup "$MESON_BUILDDIR" $MESON_ARGS
 meson configure "$MESON_BUILDDIR"
 meson compile -v -C "$MESON_BUILDDIR" $jobcount $ninja_args
 meson install --no-rebuild  -C "$MESON_BUILDDIR" $MESON_INSTALL_ARGS
+
+cp /usr/share/aclocal/xorg-server.m4 /usr/pkg/share/aclocal
