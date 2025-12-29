@@ -35,3 +35,4 @@ build_ac xorg-macros $(fdo_mirror xorg-macros) util-macros-1.20.2
 cp $X11_PREFIX/share/aclocal/xorg-macros.m4 /usr/pkg/share/aclocal
 
 build_ac libxcb-wm   $(fdo_mirror libxcb-wm)   xcb-util-wm-0.4.2
+build_meson drm      $(fdo_mirror drm)         libdrm-2.4.121     ""  -Dtests=false
