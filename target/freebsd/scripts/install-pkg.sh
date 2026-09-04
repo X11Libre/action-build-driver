@@ -6,6 +6,7 @@ pkg install -y \
     autoconf \
     automake \
     bash \
+    bzip2 \
     curl \
     gcc \
     git \
