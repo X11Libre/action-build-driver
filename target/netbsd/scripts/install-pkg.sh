@@ -17,11 +17,11 @@ pkgin -y install \
     xkbcomp xcb-util libXcursor libXScrnSaver spice-protocol fontconfig \
     mkfontscale python311 gmake curl
 
-FILESET_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-10.0/amd64/binary/sets
+FILESET_URL=https://archive.netbsd.org/pub/NetBSD-archive/NetBSD-10.0/amd64/binary/sets
 
 for i in xbase xetc xfont xcomp xserver ; do
     echo "downloading $FILESET_URL/$i.tar.xz --> /$i.tar.xz"
-    curl $FILESET_URL/$i.tar.xz -o /$i.tar.xz
+    curl -fL $FILESET_URL/$i.tar.xz -o /$i.tar.xz
     echo "unpacking /$i.tar.xz"
     tar --unlink -xJf /$i.tar.xz -C /
 done
