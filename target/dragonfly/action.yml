@@ -32,7 +32,7 @@ runs:
 
         - name: run in freebsd VM
           id:   xserver-build
-          uses: vmactions/dragonflybsd-vm@v1.1.4
+          uses: vmactions/dragonflybsd-vm@v1.3.4
           with:
               usesh:   true
               release: "6.4.2"
