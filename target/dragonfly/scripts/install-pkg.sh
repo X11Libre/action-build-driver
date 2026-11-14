@@ -2,6 +2,8 @@
 
 set -e
 
+pkg upgrade -y
+
 pkg install -y \
     autoconf \
     automake \
