@@ -32,7 +32,7 @@ runs:
 
         - name: run in netbsd VM
           id:   xserver-build
-          uses: vmactions/netbsd-vm@v1.2.3
+          uses: vmactions/netbsd-vm@v1.5.3
           with:
               usesh:   true
               release: '10.1'
