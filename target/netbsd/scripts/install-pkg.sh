@@ -26,6 +26,11 @@ for i in xbase xetc xfont xcomp xserver ; do
     tar --unlink -xJf /$i.tar.xz -C /
 done
 
+# xcomp ships libdrm 2.4.109 headers, which come before the libdrm we build
+# below on the include path. Remove them so the headers match the library.
+rm -rf /usr/X11R7/include/libdrm /usr/X11R7/include/xf86drm.h \
+    /usr/X11R7/include/xf86drmMode.h /usr/X11R7/include/libsync.h
+
 mkdir -p $X11_BUILD_DIR
 cd $X11_BUILD_DIR
 
