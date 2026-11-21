@@ -35,7 +35,7 @@ runs:
           uses: vmactions/netbsd-vm@v1.5.3
           with:
               usesh:   true
-              release: '10.1'
+              release: '11.0'
               run: |
                 set -x
                 cp -R .actions /home/runner/work/_actions

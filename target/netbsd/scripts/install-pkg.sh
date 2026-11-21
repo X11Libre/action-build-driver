@@ -17,7 +17,7 @@ pkgin -y install \
     xkbcomp xcb-util libXcursor libXScrnSaver spice-protocol fontconfig \
     mkfontscale python311 gmake curl
 
-FILESET_URL=https://archive.netbsd.org/pub/NetBSD-archive/NetBSD-10.0/amd64/binary/sets
+FILESET_URL=https://cdn.netbsd.org/pub/NetBSD/NetBSD-11.0/amd64/binary/sets
 
 for i in xbase xetc xfont xcomp xserver ; do
     echo "downloading $FILESET_URL/$i.tar.xz --> /$i.tar.xz"
@@ -25,11 +25,6 @@ for i in xbase xetc xfont xcomp xserver ; do
     echo "unpacking /$i.tar.xz"
     tar --unlink -xJf /$i.tar.xz -C /
 done
-
-# xcomp ships libdrm 2.4.109 headers, which come before the libdrm we build
-# below on the include path. Remove them so the headers match the library.
-rm -rf /usr/X11R7/include/libdrm /usr/X11R7/include/xf86drm.h \
-    /usr/X11R7/include/xf86drmMode.h /usr/X11R7/include/libsync.h
 
 mkdir -p $X11_BUILD_DIR
 cd $X11_BUILD_DIR
@@ -40,4 +35,3 @@ build_ac xorg-macros $(fdo_mirror xorg-macros) util-macros-1.20.2
 cp $X11_PREFIX/share/aclocal/xorg-macros.m4 /usr/pkg/share/aclocal
 
 build_ac libxcb-wm   $(fdo_mirror libxcb-wm)   xcb-util-wm-0.4.2
-build_meson drm      $(fdo_mirror drm)         libdrm-2.4.121     ""  -Dtests=false
